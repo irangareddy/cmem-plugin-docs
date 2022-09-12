@@ -1,0 +1,9 @@
+# Changes here will be overwritten by Copier
+_commit: v3.1.2
+_src_path: gh:eccenca/cmem-plugin-template
+author_mail: rangareddy.nukala@eccenca.com
+author_name: Ranga Reddy Nukala
+project_description: This eccenca Corporate Memory plugin totally rocks with all new
+    docs support
+project_slug: docs
+
