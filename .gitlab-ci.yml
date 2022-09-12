@@ -45,6 +45,7 @@ pages:
     - main
   script:
     - task check
+    - pip install mkdocs-material
     - mkdocs build --site-dir public
   artifacts:
     paths:
