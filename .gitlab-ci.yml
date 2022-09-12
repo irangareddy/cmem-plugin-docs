@@ -5,6 +5,7 @@ default:
 stages:
   - test
   - build
+  - deploy
 
 check:
   stage: test
@@ -36,4 +37,16 @@ build:
     paths:
       - ./dist/*.tar.gz
       - ./dist/*.whl
+
+pages:
+  stage: deploy
+  only:
+    - master
+    - main
+  script:
+    - task check
+    - mkdocs build --site-dir public
+  artifacts:
+    paths:
+      - public
 

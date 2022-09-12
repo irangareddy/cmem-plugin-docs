@@ -164,3 +164,10 @@ tasks:
     interactive: true
     cmds:
       - poetry shell
+
+  serve:docs:
+    desc: serve docs to localhost.
+    deps:
+      - check
+    cmds:
+      - mkdocs gh-deploy --force

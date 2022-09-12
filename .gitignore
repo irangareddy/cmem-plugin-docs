@@ -147,3 +147,6 @@ co
 artifacts
 .DS_Store
 .task
+
+# code reference in docs
+docs/reference/

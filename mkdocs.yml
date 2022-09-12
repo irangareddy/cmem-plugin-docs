@@ -1,1 +1,83 @@
-site_name: My Docs
+site_name: cmempy Documentation
+site_description: cmempy documentation
+site_author: Sebastian Tramp
+repo_name: CMEM/cmempy
+repo_url: https://gitlab.eccenca.com/elds/cmempy
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - toc.integrate
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  icon:
+    repo: fontawesome/brands/git-alt
+
+
+extra_css:
+  - stylesheets/eccenca-theme.css
+
+markdown_extensions:
+- admonition
+- callouts
+#- pymdownxpoe.details
+- pymdownx.emoji
+- pymdownx.magiclink
+- pymdownx.snippets:
+    check_paths: true
+    auto_append: [ ]
+    base_path:
+      - ./
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.tasklist
+- toc:
+    permalink: "¤"
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: true
+      fallback_to_build_date: true
+  - gen-files:
+      scripts:
+      - docs/gen-ref-nav.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+  - section-index
+  - coverage:
+      html_report_dir: dist/coverage/
+  - mkdocstrings
+
+
+nav:
+  - Getting Started: getting-started.md
+  - Tutorials: tutorials.md
+  - How-To Guides: how-to-guides.md
+  - Explanation: explanation.md
+  - Code Reference: reference/
+  - About:
+      - Contributing: about/contributing.md
+      - Changelog: about/changelog.md
+      - Coverage report: coverage.md
