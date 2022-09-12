@@ -150,3 +150,7 @@ artifacts
 
 # code reference in docs
 docs/reference/
+
+# ignore doc build
+public/
+site/
