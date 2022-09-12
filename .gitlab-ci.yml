@@ -3,40 +3,40 @@ default:
   image: docker-registry.eccenca.com/eccenca-python:v3.9.12-1
 
 stages:
-  - test
-  - build
+#  - test
+#  - build
   - deploy
 
-check:
-  stage: test
-  script:
-    - task check
-  artifacts:
-    when: always
-    reports:
-      cobertura:
-        - ./dist/coverage.xml
-      junit:
-        - ./dist/junit-bandit.xml
-        - ./dist/junit-flake8.xml
-        - ./dist/junit-mypy.xml
-        - ./dist/junit-pylint.xml
-        - ./dist/junit-pytest.xml
-    paths:
-      - ./dist/badge-coverage.svg
-      - ./dist/badge-tests.svg
-      - ./dist/coverage
-      - ./dist/coverage.xml
-
-build:
-  stage: build
-  script:
-    - task build
-  artifacts:
-    when: always
-    paths:
-      - ./dist/*.tar.gz
-      - ./dist/*.whl
+#check:
+#  stage: test
+#  script:
+#    - task check
+#  artifacts:
+#    when: always
+#    reports:
+#      cobertura:
+#        - ./dist/coverage.xml
+#      junit:
+#        - ./dist/junit-bandit.xml
+#        - ./dist/junit-flake8.xml
+#        - ./dist/junit-mypy.xml
+#        - ./dist/junit-pylint.xml
+#        - ./dist/junit-pytest.xml
+#    paths:
+#      - ./dist/badge-coverage.svg
+#      - ./dist/badge-tests.svg
+#      - ./dist/coverage
+#      - ./dist/coverage.xml
+#
+#build:
+#  stage: build
+#  script:
+#    - task build
+#  artifacts:
+#    when: always
+#    paths:
+#      - ./dist/*.tar.gz
+#      - ./dist/*.whl
 
 pages:
   stage: deploy
@@ -44,9 +44,7 @@ pages:
     - master
     - main
   script:
-    - task check
-    - pip install mkdocs-material
-    - mkdocs build --site-dir public
+    - task serve:docs
   artifacts:
     paths:
       - public

@@ -171,3 +171,4 @@ tasks:
       - check
     cmds:
       - mkdocs gh-deploy --force
+      - mkdocs build --site-dir public
