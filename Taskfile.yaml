@@ -170,5 +170,5 @@ tasks:
     deps:
       - check
     cmds:
-      - mkdocs gh-deploy --force
-      - mkdocs build --site-dir public
+      - poetry run mkdocs gh-deploy --force
+      - poetry run mkdocs build --site-dir public
