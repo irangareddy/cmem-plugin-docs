@@ -41,10 +41,9 @@ stages:
 pages:
   stage: deploy
   only:
-    - master
     - main
   script:
-    - task serve:docs
+    - task serve:gitlab
   artifacts:
     paths:
       - public

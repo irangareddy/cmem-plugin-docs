@@ -165,10 +165,16 @@ tasks:
     cmds:
       - poetry shell
 
-  serve:docs:
-    desc: serve docs to localhost.
+  serve:github:
+    desc: serve docs to GitHub.
     deps:
       - check
     cmds:
       - poetry run mkdocs gh-deploy --force
+
+  serve:gitlab:
+    desc: serve docs to GitLab.
+    deps:
+      - check
+    cmds:
       - poetry run mkdocs build --site-dir public
