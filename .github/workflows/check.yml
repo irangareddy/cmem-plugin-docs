@@ -54,7 +54,6 @@ jobs:
           junit-path: dist/junit-pytest.xml
           coverage-path: dist/coverage.xml
       - name: task serve:github
-        run: |
-          task serve:github
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
 
 
