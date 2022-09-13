@@ -1,8 +1,10 @@
 site_name: cmempy Documentation
 site_description: cmempy documentation
 site_author: Sebastian Tramp
-repo_name: CMEM/cmempy
-repo_url: https://gitlab.eccenca.com/elds/cmempy
+repo_url: https://github.com/irangareddy/cmem-plugin-docs
+site_url: https://irangareddy.github.io/cmem-plugin-docs/
+repo_name: cmem-plugin-docs
+site_dir: site
 
 theme:
   name: material
@@ -64,7 +66,7 @@ plugins:
       scripts:
       - docs/gen-ref-nav.py
   - literate-nav:
-      nav_file: SUMMARY.md
+      nav_file: docs/reference/SUMMARY.md
   - section-index
   - coverage:
       html_report_dir: dist/coverage/
