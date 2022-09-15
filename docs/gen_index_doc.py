@@ -1,4 +1,5 @@
 """index.md generator"""
+import mkdocs_gen_files
 
 
 def get_badges():
@@ -26,7 +27,7 @@ def create_index_file():
         ':material-email: {{copier["author_mail"]}}'
     ]
 
-    with open("docs/index.md", "w", encoding="utf-8") as index_file:
+    with mkdocs_gen_files.open("index.md", "w") as index_file:
         for line in lines:
             index_file.write(f'{line}\n\n')
 

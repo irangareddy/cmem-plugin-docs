@@ -1,6 +1,7 @@
-site_name: cmempy Documentation
-site_description: cmempy documentation
-site_author: Sebastian Tramp
+site_name: cmem-plugin-docs
+site_description: This eccenca Corporate Memory plugin totally rocks with all new
+    docs support
+site_author: Ranga Reddy Nukala
 repo_url: https://github.com/irangareddy/cmem-plugin-docs
 site_url: https://irangareddy.github.io/cmem-plugin-docs/
 repo_name: cmem-plugin-docs
@@ -64,14 +65,16 @@ plugins:
   - macros:
       include_yaml:
         - copier: .copier-answers.yml
+        - task: Taskfile.yaml
   - git-revision-date-localized:
       type: date
       enable_creation_date: true
       fallback_to_build_date: true
   - gen-files:
       scripts:
-      - docs/gen-ref-nav.py
-      - docs/gen_index_doc.py
+        - docs/gen_index_doc.py
+        - docs/gen-ref-nav.py
+        - docs/gen_how_to_guides.py
   - literate-nav:
       nav_file: docs/reference/SUMMARY.md
   - section-index
@@ -82,9 +85,7 @@ plugins:
 
 nav:
   - Getting Started: getting-started.md
-  - Tutorials: tutorials.md
-  - How-To Guides: how-to-guides.md
-  - Explanation: explanation.md
+  - How-To Guides: how-to-guides/
   - Code Reference: reference/
   - About:
       - Contributing: about/contributing.md
