@@ -75,6 +75,7 @@ plugins:
         - docs/gen_index_doc.py
         - docs/gen-ref-nav.py
         - docs/gen_how_to_guides.py
+        - docs/gen_getting_started.py
   - literate-nav:
       nav_file: docs/reference/SUMMARY.md
   - section-index
