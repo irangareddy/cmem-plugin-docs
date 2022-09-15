@@ -45,6 +45,7 @@ typed-ast = "^1.5.2"
 mypy = "^0.931"
 coverage = "^6.3.2"
 defusedxml = "^0.7.1"
+mkdocs-macros-plugin = "^0.7.0"
 
 
 [build-system]

@@ -52,12 +52,18 @@ markdown_extensions:
 - pymdownx.superfences
 - pymdownx.tabbed:
     alternate_style: true
-- pymdownx.tasklist
 - toc:
     permalink: "¤"
+- attr_list
+- pymdownx.emoji:
+    emoji_index: !!python/name:materialx.emoji.twemoji
+    emoji_generator: !!python/name:materialx.emoji.to_svg
 
 plugins:
   - search
+  - macros:
+      include_yaml:
+        - copier: ../.copier-answers.yml
   - git-revision-date-localized:
       type: date
       enable_creation_date: true
@@ -65,6 +71,7 @@ plugins:
   - gen-files:
       scripts:
       - docs/gen-ref-nav.py
+      - docs/gen_index_doc.py
   - literate-nav:
       nav_file: docs/reference/SUMMARY.md
   - section-index

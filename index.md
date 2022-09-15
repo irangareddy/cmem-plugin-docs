@@ -1,0 +1,2 @@
+{ config["project_slug"] }
+
