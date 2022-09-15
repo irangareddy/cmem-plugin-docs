@@ -63,7 +63,7 @@ plugins:
   - search
   - macros:
       include_yaml:
-        - copier: ../.copier-answers.yml
+        - copier: .copier-answers.yml
   - git-revision-date-localized:
       type: date
       enable_creation_date: true
