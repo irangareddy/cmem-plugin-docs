@@ -5,7 +5,7 @@ default:
 stages:
  - test
  - build
-  - deploy
+ - deploy
 
 check:
  stage: test
