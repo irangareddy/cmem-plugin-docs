@@ -1,8 +1,7 @@
 """Docs Generator"""
+import os
 from pathlib import Path
 import mkdocs_gen_files
-
-nav = mkdocs_gen_files.Nav()
 
 PROJECT_NAME = 'cmem-plugin-{{ copier["project_slug"] }}'
 PROJECT_DESCRIPTION = '{{ copier["project_description"] }}'
@@ -34,9 +33,9 @@ def generate_index_file():
     lines = project_details() + [
         '<h5> Badges </h5>',
         get_badges(),
-        '<h5> Author Details </h5>'
+        '<h5> Author Details </h5>',
         ':fontawesome-brands-dev: {{copier["author_name"]}}',
-        ':material-email: {{copier["author_mail"]}}'
+        ':fontawesome-solid-envelope: {{copier["author_mail"]}}'
     ]
 
     with mkdocs_gen_files.open("index.md", "w") as index_file:
@@ -54,7 +53,7 @@ def generate_installation_content():
         """,
         'Using `poetry`',
         f"""
-        poetry add {PROJECT_DESCRIPTION}
+        poetry add {PROJECT_NAME}
         """,
     ]
 
@@ -71,9 +70,12 @@ def generate_getting_started():
 
 def generate_nav_bar_content(src_path: str, destination_path: str):
     """Generates Dynamic Nav Bar Content"""
-    for path in sorted(Path(src_path).glob("**/*.py")):
-        module_path = path.relative_to(src_path).with_suffix("")
-        doc_path = path.relative_to(src_path).with_suffix(".md")
+
+    nav = mkdocs_gen_files.Nav()
+
+    for path in sorted(Path(f'{src_path}/').glob("**/*.py")):
+        module_path = path.relative_to(f'{src_path}/').with_suffix("")
+        doc_path = path.relative_to(f'{src_path}/').with_suffix(".md")
         full_doc_path = Path(destination_path, doc_path)
 
         parts = list(module_path.parts)
@@ -84,12 +86,12 @@ def generate_nav_bar_content(src_path: str, destination_path: str):
                 full_doc_path = full_doc_path.with_name("index.md")
             elif parts[-1] == "__main__":
                 continue
-            nav[parts] = doc_path
+            nav[parts] = str(doc_path)
         except ValueError:
-            print(f'Value Error at {full_doc_path}')
+            # FIXME: Handle index file at package level
+            pass
 
         with mkdocs_gen_files.open(full_doc_path, "w") as fd:
-            print(full_doc_path)
             ident = ".".join(parts)
             if len(ident) > 0:
                 print(f"::: {src_path}." + ident, file=fd)
@@ -104,8 +106,9 @@ def generate_nav_bar_content(src_path: str, destination_path: str):
 
 generate_index_file()
 generate_getting_started()
-generate_nav_bar_content(src_path='cmem_plugin_docs/'
-                         , destination_path='reference')
-# generate_nav_bar_content(src_path='tests/', destination_path='how-to-guides')
+generate_nav_bar_content(src_path=f'cmem_plugin_{os.environ.get("project_slug")}',
+                         destination_path='reference')
+generate_nav_bar_content(src_path='tests', destination_path='how-to-guides')
+
 
 

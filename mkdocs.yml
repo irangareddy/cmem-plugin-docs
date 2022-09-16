@@ -10,47 +10,44 @@ site_dir: site
 theme:
   name: material
   features:
+    - navigation.indexes
+    - navigation.sections
     - navigation.tabs
-    - toc.integrate
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
   palette:
-    # Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-
-    # Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+    - scheme: default
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: slate
+      primary: indigo
+      accent: indigo
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
+        name: Switch to light mode
   icon:
     repo: fontawesome/brands/git-alt
 
 
 extra_css:
-  - stylesheets/eccenca-theme.css
+  - stylesheets/extra.css
 
 markdown_extensions:
 - admonition
 - callouts
-#- pymdownxpoe.details
-- pymdownx.emoji
 - pymdownx.magiclink
 - pymdownx.snippets:
     check_paths: true
     auto_append: [ ]
     base_path:
       - ./
-- pymdownx.superfences
 - pymdownx.tabbed:
     alternate_style: true
 - toc:
@@ -80,6 +77,17 @@ plugins:
       html_report_dir: dist/coverage/
   - mkdocstrings
 
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/irangareddy
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/u/eccenca
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/cmem-plugin-base/
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/irangareddy
 
 nav:
   - Getting Started: getting-started.md
