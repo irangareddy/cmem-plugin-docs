@@ -171,7 +171,7 @@ graph = ["objgraph (>=1.7.2)"]
 name = "doc"
 version = "0.1.0"
 description = "Turn your Python script into a report with inline figures."
-category = "dev"
+category = "main"
 optional = false
 python-versions = "*"
 
@@ -691,7 +691,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "2a03565c5ac8f85b487c25eeb0a825999e5afc8645aab9e66f5334973914ae35"
+content-hash = "c4d47a0fbbdbf212055fd149b0273bc2718d3d38308126ab4031f2ea47e010b0"
 
 [metadata.files]
 astroid = [
